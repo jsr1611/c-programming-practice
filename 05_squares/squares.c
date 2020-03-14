@@ -8,11 +8,13 @@
  */
 int isInRange(int coord, int offset, int size) {
   // if coord is in range, return 1
-  if(coord >= offset && coord<(offset+size)){
+  if(coord >= offset && coord < (offset+size)){
     return 1;
   }
   // else, return 0
-   return 0;
+  else{
+    return 0;
+  }
 }
 
 /*
@@ -21,18 +23,22 @@ int isInRange(int coord, int offset, int size) {
  */
 int isAtBorder(int coord, int offset, int size) {
   // if coord is equal to offest or offset + size
-  if(coord == offset || coord == (offset+size)){
+  if(coord == offset || coord == (size)){
     return 1;
   }
   // return 1, else return 0
-  return 0;
+  else{
+    return 0;
+  }
 }
 //compute max of two numbers
 int max(int num1, int num2){
   if(num1>num2){
     return num1;
   }
-  return num2;
+  else{
+    return num2;
+  }
  }
 
 void squares(int size1, int x_offset, int y_offset, int size2) {
@@ -46,7 +52,7 @@ void squares(int size1, int x_offset, int y_offset, int size2) {
     for(int x=0; x < w; x++){
       //check if  EITHER
       
-      if ( ((isInRange(x,x_offset, (x_offset+size2)) == 1) && (isAtBorder(y,y_offset,(y_offset+size2-1))==1)) || ((isInRange(y, y_offset, (y_offset+size2))==1) && (isAtBorder(x, x_offset, (x_offset+size2-1))==1 )) )
+      if ((isInRange(x, x_offset, (x_offset+size2)) == 1 && isAtBorder(y,y_offset,(y_offset+size2 - 1)))== 1 || (isInRange(y, y_offset, (y_offset+size2))==1 && isAtBorder(x, x_offset, (x_offset+size2 - 1))==1 ))
 	{
 	printf("*");
       }
@@ -60,13 +66,13 @@ void squares(int size1, int x_offset, int y_offset, int size2) {
 
       //if not,
       // check if EITHER
-      else if(((x < size1) && (y==0 || y==(size1-1))) || ((y<size1) && (x==0 || x == (size1-1)))){
+       else if(((x < size1) && isAtBorder(y,0,(size1 - 1))) || ((y < size1) && isAtBorder(x,0,(size1 - 1)))){
       //    x is less than size1 AND (y is either 0 or size1-1)
       // OR
       //    y is less than size1 AND (x is either 0 or size1-1)
       //if so, print a #
-	printf("#");
-      }
+     	printf("#");
+       }
 
       //else print a space
       else{
