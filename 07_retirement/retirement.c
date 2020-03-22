@@ -1,7 +1,7 @@
 #include<stdio.h>
 #include<stdlib.h>
 
-struct _retire_info (int months, double contribution, double rate_of_return){
+struct _retire_info {
   int months;
   double contribution;
   double rate_of_return;
@@ -10,26 +10,27 @@ struct _retire_info (int months, double contribution, double rate_of_return){
 typedef struct _retire_info retire_info;
 
 void retirement(int startAge, double initial, retire_info working, retire_info retired){
- 
-  if (startAge == 327){
+
+  int currentAge = startAge;
+  if (currentAge == 327){
     for(int i = 0; i < (working.months); i++){
-      printf("Age %3d month %2d you have $%.2lf\n", startAge/12, startAge % 12, initial);
+      printf("Age %3d month %2d you have $%.2lf\n", currentAge/12, currentAge % 12, initial);
       initial += initial * working.rate_of_return;
       initial += working.contribution;
-      i += 1;
-      startAge += 1;
+      currentAge += 1;
     }
   }
- else if (startAge == working.months + startAge){
+  printf("retired at %d\n", currentAge);
+  
+  if (currentAge == (working.months + startAge)){
+   printf("retired.omnths %d", retired.months);
    for(int j = 0; j < retired.months; j++){
-     printf("Age %3d month %2d you have $%.2lf\n", startAge/12, startAge%12, initial);
-     inital += initial *retired.rate_of_return
+     printf("Age %3d month %2d you have $%.2lf\n", currentAge/12, currentAge%12, initial);
+     initial += initial *retired.rate_of_return;
      initial += retired.contribution;
-     j += 1;
-     startAge += 1;
+     currentAge += 1;
   }
  }
-  
 }
 
 int main(){
@@ -46,7 +47,6 @@ int main(){
 
   int startAge = 327;
   double initial = 21345;
-  printf("startAge %d initial %d worked %d retired %d now %d year %d month", startAge, initial, working.months, retired.months, (startAge+working.months+retired.months)/12, (startAge+ working.months+retired.months)%12); 
   retirement(startAge, initial, working, retired);
   
   return EXIT_SUCCESS;
