@@ -16,16 +16,201 @@ int max (int a, int b) {
 }
 
 //Declare your rectangle structure here!
+struct rect_tag {
+  int x;
+  int y;
+  int width;
+  int height;
+  
+};
 
+typedef struct rect_tag rectangle;
 
-rectangle canonicalize(rectangle r) {
-  //WRITE THIS FUNCTION
+rectangle canonicalize(rectangle r){
+
+  if(r.width < 0){
+    if(r.height < 0){
+      r.y = r.y + r.height;
+      r.height = (-1)* r.height;
+    }
+    r.x = r.width+r.x;
+    r.width = (-1) *  r.width;
+  }
+  else if (r.height < 0){
+    if (r.width < 0){
+      r.x = r.width+r.x;
+      r.width = (-1) *  r.width;
+    }
+    r.y = r.y + r.height;
+    r.height = (-1)* r.height;
+  }
+
   return r;
 }
+
 rectangle intersection(rectangle r1, rectangle r2) {
   //WRITE THIS FUNCTION
-  return r1;
-}
+  
+  //  rectangle intersection(rectangle r1, rectangle r2){
+    r1 = canonicalize(r1);
+    r2 = canonicalize(r2);
+    rectangle r;
+    if (r1.x <= r2.x){
+      if (r1.y <= r2.y) {
+	if (r1.width+r1.x <= r2.width+r2.x ){
+	  if (r1.height+r1.y <= r2.height + r2.y){
+
+	    r.x = r2.x;
+	    r.y = r2.y;
+	    r.width = (r1.width + r1.x) - r2.x;
+	    r.height = (r1.height + r1.y) - r2.y; }
+	  else{ // if (r1.height+r1.y > r2.height+r2.y)
+
+	    r.x = r2.x;
+	    r.y = r2.y;
+	    r.width = (r1.width + r1.x) - r2.x;
+	    r.height = r2.height; }
+	}
+	else{  // if (r1.width+r1.x > r2.width+r2.x)
+	  if (r1.height+r1.y <= r2.height + r2.y){
+
+	    r.x = r2.x;
+	    r.y = r2.y;
+	    r.width = r2.width;
+	    r.height = r1.height+r1.y - r2.y; }
+	  else {   // if(r1.height+r1.y > r2.height+r2.y){
+
+	    r.x = r2.x;
+	    r.y = r2.y;
+	    r.width = r2.width;
+	    r.height = r2.height; }
+	}
+      }
+
+      else {  //     if (r1.y > r2.y) {
+	if (r1.width+r1.x <= r2.width + r2.x ){
+	  if (r1.height+r1.y <= r2.height+r2.y){
+	    if(r1.x + r1.width < r2.x) {
+	      r.width = 0;
+	      r.height = 0;
+	      r.x = 0;
+	      r.y = 0;
+	    }
+
+	    else{
+
+	      r.x = r2.x;
+	      r.y = r1.y;
+	      r.width = (r1.width + r1.x) - r2.x;
+	      r.height = r1.height; }
+	  }
+	  else{ // if (r1.height+r1.y > r2.height+r2.y)
+	    if (r1.y > r2.y+r2.height){
+	      r.width = 0;
+	      r.height = 0;
+	      r.x = 0;
+	      r.y = 0;
+	    }
+	    else{
+	      r.x = r2.x;
+	      r.y = r1.y;
+	      r.width = (r1.width + r1.x) - r2.x;
+	      r.height = (r2.height+r2.y) - r1.y; }
+	  }
+	}
+	else{  // if (r1.width+r1.x > r2.width+r2.x)
+	  if (r1.height+r1.y <= r2.height + r2.y){
+	    r.x = r2.x;
+	    r.y = r1.y;
+	    r.width = r2.width;
+	    r.height = r1.height;     }
+	  else {   // if(r1.height+r1.y > r2.height+r2.y){
+
+	    r.x = r2.x;
+	    r.y = r1.y;
+	    r.width = r2.width;
+	    r.height = (r2.height+r2.y) - r1.y;  }
+	}
+      }
+    }
+
+
+    // second big case
+    else { // if (r1.x > r2.x)
+      if (r1.y <= r2.y) {
+	if (r1.width+r1.x <= r2.width + r2.x ){
+	  if (r1.height+r1.y <= r2.height+r2.y){
+
+	    r.x = r1.x;
+	    r.y = r2.y;
+	    r.width = r1.width;
+	    r.height = (r1.height + r1.y) - r2.y; }
+	  else{ // if (r1.height+r1.y > r2.height+r2.y)
+
+	    r.x = r1.x;
+	    r.y = r2.y;
+	    r.width = r1.width;
+	    r.height = r2.height; }
+	}
+	else{  // if (r1.width+r1.x > r2.width+r2.x)
+	  if (r1.height+r1.y <= r2.height+r2.y){
+
+	    if ((r1.x > r2.x+r2.width) || (r2.y > r1.y+r1.height) ){
+	      r.width = 0;
+	      r.height = 0;
+	      r.x = 0;
+	      r.y = 0;
+	    }
+	    else{
+	      r.x = r1.x;
+	      r.y = r2.y;
+	      r.width = (r2.width+r2.x) - r1.x;
+	      r.height = (r1.height+r1.y) - r2.y; }}
+	  else {   // if(r1.height+r1.y > r2.height+r2.y){
+
+	    r.x = r1.x;
+	    r.y = r2.y;
+	    r.width = (r2.width+r2.x) - r1.x;
+	    r.height = r2.height; }
+	}
+      }
+
+      else {  //     if (r1.x > r2.x) && (r1.y > r2.y) {
+	if (r1.width+r1.x <= r2.width+r2.x ){
+	  if (r1.height+r1.y <= r2.height+r2.y){
+
+	    r.x = r1.x;
+	    r.y = r1.y;
+	    r.width = r1.width;
+	    r.height = r1.height; }
+	  else{ // if (r1.height+r1.y > r2.height+r2.y)
+
+	    r.x = r1.x;
+	    r.y = r1.y;
+	    r.width = r1.width;
+	    r.height = (r2.height+r2.y) - r1.y;   }
+	}
+	else{  // if (r1.width+r1.x > r2.width+r2.x)
+	  if (r1.height+r1.y <= r2.height+r2.y){
+
+	    r.x = r1.x;
+	    r.y = r1.y;
+	    r.width = (r2.width+r2.x) - r1.x;
+	    r.height = r1.height;   }
+	  else {   // if(r1.height+r1.y > r2.height+r2.y){
+
+	    r.x = r1.x;
+	    r.y = r1.y;
+	    r.width = (r2.width+r2.x) - r1.x;
+	    r.height = (r2.height+r2.y) - r1.y;   }
+	}
+      }
+
+    }
+
+
+    return r;
+  }
 
 //You should not need to modify any code below this line
 void printRectangle(rectangle r) {
