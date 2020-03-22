@@ -22,7 +22,6 @@ void retirement(int startAge, double initial, retire_info working, retire_info r
   }
   
   if (currentAge == (working.months + startAge)){
-   printf("retired.omnths %d", retired.months);
    for(int j = 0; j < retired.months; j++){
      printf("Age %3d month %2d you have $%.2lf\n", currentAge/12, currentAge%12, initial);
      initial += initial *retired.rate_of_return;
