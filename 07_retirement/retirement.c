@@ -20,7 +20,6 @@ void retirement(int startAge, double initial, retire_info working, retire_info r
       currentAge += 1;
     }
   }
-  printf("retired at %d\n", currentAge);
   
   if (currentAge == (working.months + startAge)){
    printf("retired.omnths %d", retired.months);
