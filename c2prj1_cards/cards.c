@@ -45,10 +45,10 @@ char value_letter(card_t c) {
 char suit_letter(card_t c) {
   switch(c.suit){
 
-  case SPADES:    return 115;    break;
-  case HEARTS:    return 104;   break;
-  case DIAMONDS:  return 100;    break;
-  default:        return  99;   break;
+  case SPADES:    return 's';    break;
+  case HEARTS:    return 'h';   break;
+  case DIAMONDS:  return 'd';    break;
+  default:        return  'c';   break;
   }
 }
 
