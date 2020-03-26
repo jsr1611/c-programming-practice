@@ -20,7 +20,7 @@ const char * ranking_to_string(hand_ranking_t r) {
   case THREE_OF_A_KIND: return "THREE_OF_A_KIND"; break;
   case TWO_PAIR: return "TWO_PAIR"; break;
   case PAIR: return "PAIR"; break;
-  default : return "Nothing"; break;
+  default : return "NOTHING"; break;
   }
 }
 
@@ -60,8 +60,19 @@ card_t card_from_letters(char value_let, char suit_let) {
   card_t temp;
   assert(value_let);
   assert(suit_let);
-  temp.value = value_let;
-  temp.suit = suit_let;
+  switch(value_let){
+  case 'A':    temp.value = VALUE_ACE;    break;
+  case 'K':    temp.value = VALUE_KING;   break;
+  case 'Q':    temp.value = VALUE_QUEEN;  break;
+  case 'J':    temp.value = VALUE_JACK;   break;
+  }
+  switch(suit_let){
+  case 's':    temp.suit = SPADES;  break;
+  case 'h':    temp.suit = HEARTS;  break;
+  case 'd':    temp.suit = DIAMONDS;  break;
+  case 'c':    temp.suit = CLUBS;  break;    
+     
+  }
   return temp;
 }
 
