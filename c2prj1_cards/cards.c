@@ -26,19 +26,20 @@ const char * ranking_to_string(hand_ranking_t r) {
 
 char value_letter(card_t c) {
   switch(c.value){
- case 0:  return 50;  break;
- case 1:  return 51;  break;
- case 2:  return 52;  break;
- case 3:  return 53;  break;
- case 4:  return 54;  break;
- case 5:  return 55;  break;
- case 6:  return 56;  break;
- case 7:  return 57;  break;
- case 8: return 48;  break;
- case 9: return 74;  break;
- case 10: return 81;  break;
- case 11: return 75;  break;
- default: return 65;  break;   
+ case 2:  return 50;  break;
+ case 3:  return 51;  break;
+ case 4:  return 52;  break;
+ case 5:  return 53;  break;
+ case 6:  return 54;  break;
+ case 7:  return 55;  break;
+ case 8:  return 56;  break;
+ case 9:  return 57;  break;
+ case 0: return 48;  break;
+ case VALUE_ACE: return 74;  break;
+ case VALUE_KING: return 81;  break;
+ case VALUE_QUEEN: return 75;  break;
+ case VALUE_JACK: return 65;  break;   
+ default: break;   
  }
 }
 
@@ -46,9 +47,10 @@ char suit_letter(card_t c) {
   switch(c.suit){
 
   case SPADES:    return 's';    break;
-  case HEARTS:    return 'h';   break;
+  case HEARTS:    return 'h';    break;
   case DIAMONDS:  return 'd';    break;
-  default:        return  'c';   break;
+  case CLUBS:     return 'c';    break;
+  default:        break;
   }
 }
 
