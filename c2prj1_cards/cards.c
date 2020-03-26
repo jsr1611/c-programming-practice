@@ -27,6 +27,7 @@ char value_letter(card_t c) {
   if(c.value >= 2 && c.value <=9) {return c.value+'0';}
   else{
   switch(c.value){
+  case 10: return 48;
   case VALUE_JACK: return 74; 
   case VALUE_QUEEN: return 81; 
   case VALUE_KING: return 75; 
