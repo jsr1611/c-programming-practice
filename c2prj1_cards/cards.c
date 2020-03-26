@@ -83,22 +83,22 @@ card_t card_from_num(unsigned c) {
   if(c >=0 && c<13){
     temp.value = c;
     temp.suit = SPADES;
-    temp.value = value_letter(temp);
+    // temp.value = value_letter(temp);
   }
   else if (c>=13 && c<26){
     temp.value = c%13;
     temp.suit = HEARTS;
-    temp.value = value_letter(temp);
+    // temp.value = value_letter(temp);
   }
   else if(c>=26 && c<39){
     temp.value = c%13;
     temp.suit = DIAMONDS;
-    temp.value = value_letter(temp);
+    // temp.value = value_letter(temp);
   }
   else if(c>=39 && c<52){
     temp.value = c%13;
     temp.suit = CLUBS;
-    temp.value = value_letter(temp);
+    // temp.value = value_letter(temp);
   }
 
     return temp;
