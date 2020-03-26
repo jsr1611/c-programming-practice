@@ -35,11 +35,11 @@ char value_letter(card_t c) {
  case 7:  return 55;  break;
  case 8:  return 56;  break;
  case 9:  return 57;  break;
- case 10:  return 48;  break;
- case 11: return 74;  break;
- case 12: return 81;  break;
- case 13: return 75;  break;
- case 14: return 65;  break;   
+   // case 10:  return 48;  break;
+   // case 11: return 74;  break;
+   // case 12: return 81;  break;
+   // case 13: return 75;  break;
+   // case 14: return 65;  break;   
   default: return 63; break;
  }
 }
