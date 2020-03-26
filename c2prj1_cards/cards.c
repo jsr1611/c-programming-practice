@@ -80,19 +80,19 @@ card_t card_from_letters(char value_let, char suit_let) {
 card_t card_from_num(unsigned c) {
   card_t temp;
 
-  if(c>=0 && c<4){  temp.value = 2; }
-  if(c>=4 && c<8){  temp.value = 3;}
-  if(c>=8 && c<12){  temp.value = 4; }
-  if(c>=12 && c<16){ temp.value = 5;}
-  if(c>=16 && c<20){ temp.value = 6; }
-  if(c>=20 && c<24){  temp.value = 7;}
-  if(c>=24 && c<28){ temp.value = 8; }
-  if(c>=28 && c<32){ temp.value = 9;}
-  if(c>=32 && c<36){ temp.value = 10;}
-  if(c>=36 && c<40){ temp.value = 11; }
-  if(c>=40 && c<44){ temp.value = 12;}
-  if(c>=44 && c<48){ temp.value = 13; }
-  if(c>=48 && c<52){ temp.value = 14;}
+  if(c>=0 && c<4){  temp.value = '2'; }
+  if(c>=4 && c<8){  temp.value = '3';}
+  if(c>=8 && c<12){  temp.value = '4'; }
+  if(c>=12 && c<16){ temp.value = '5';}
+  if(c>=16 && c<20){ temp.value = '6'; }
+  if(c>=20 && c<24){  temp.value = '7';}
+  if(c>=24 && c<28){ temp.value = '8'; }
+  if(c>=28 && c<32){ temp.value = '9';}
+  if(c>=32 && c<36){ temp.value = '0';}
+  if(c>=36 && c<40){ temp.value = 'J'; }
+  if(c>=40 && c<44){ temp.value = 'Q';}
+  if(c>=44 && c<48){ temp.value = 'K'; }
+  if(c>=48 && c<52){ temp.value = 'A';}
     
     
   if (c==0 || c==4 || c==8 || c==12 || c==16 || c==20 || c == 24 || c==28 || c==32 || c==36 || c==40 || c==44 || c==48){
