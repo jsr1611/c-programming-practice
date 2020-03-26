@@ -62,7 +62,7 @@ card_t card_from_letters(char value_let, char suit_let) {
   case '8': temp.value = 8; break;
   case '9': temp.value = 9; break;
   case '0': temp.value = 10; break;
-  case 'j': temp.value = VALUE_JACK; break;
+  case 'J': temp.value = VALUE_JACK; break;
   case 'Q': temp.value = VALUE_QUEEN; break;
   case 'K': temp.value = VALUE_KING; break;
   case 'A': temp.value = VALUE_ACE; break;        
