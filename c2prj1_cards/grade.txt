@@ -1,4 +1,4 @@
-Grading at Thu Mar 26 04:24:43 UTC 2020
+Grading at Thu Mar 26 04:53:36 UTC 2020
 Compiling cards.c
 Testing card_from_letters
 Failed
