@@ -96,16 +96,16 @@ card_t card_from_num(unsigned c) {
     
     
   if (c==0 || c==4 || c==8 || c==12 || c==16 || c==20 || c == 24 || c==28 || c==32 || c==36 || c==40 || c==44 || c==48){
-    temp.suit = SPADES;
+    temp.suit = 's';
   }
   if (c==1 || c==5 || c==9 || c==13 || c==17 || c==21 || c == 25 || c==29 || c==33 || c==37 || c==41 || c==45 || c==49){
-    temp.suit = HEARTS;
+    temp.suit = 'h';
   }
   if (c==2 || c==6 || c==10 || c==14 || c==18 || c==22 || c == 26 || c==30 || c==34 || c==38 || c==42 || c==46 || c==50){
-    temp.suit = DIAMONDS;
+    temp.suit = 'd';
   }
   if (c==3 || c==7 || c==11 || c==15 || c==19 || c==23 || c == 27 || c==31 || c==35 || c==39 || c==43 || c==47 || c==51){
-    temp.suit = CLUBS;
+    temp.suit = 'c';
      } 
     return temp;
 }
