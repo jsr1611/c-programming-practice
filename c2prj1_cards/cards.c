@@ -24,7 +24,7 @@ const char * ranking_to_string(hand_ranking_t r) {
 }
 
 char value_letter(card_t c) {
-  if(c.value >= 2 && c.value <=9) {return c.value+50;}
+  if(c.value >= 2 && c.value <=9) {return c.value+'0';}
   else{
   switch(c.value){
   case 10: return 48;
