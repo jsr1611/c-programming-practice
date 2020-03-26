@@ -35,7 +35,7 @@ char value_letter(card_t c) {
  case 7:  return 55;  break;
  case 8:  return 56;  break;
  case 9:  return 57;  break;
- case 0:  return 48;  break;
+ case 10:  return 48;  break;
  case 11: return 74;  break;
  case 12: return 81;  break;
  case 13: return 75;  break;
@@ -73,8 +73,7 @@ card_t card_from_letters(char value_let, char suit_let) {
   case 's':    temp.suit = SPADES;  break;
   case 'h':    temp.suit = HEARTS;  break;
   case 'd':    temp.suit = DIAMONDS;  break;
-  case 'c':    temp.suit = CLUBS;  break;    
-     
+  case 'c':    temp.suit = CLUBS;  break;        
   }
   return temp;
 }
