@@ -26,6 +26,7 @@ const char * ranking_to_string(hand_ranking_t r) {
 
 char value_letter(card_t c) {
   switch(c.value){
+
  case 2:  return 50;  break;
  case 3:  return 51;  break;
  case 4:  return 52;  break;
@@ -34,11 +35,11 @@ char value_letter(card_t c) {
  case 7:  return 55;  break;
  case 8:  return 56;  break;
  case 9:  return 57;  break;
- case 0: return 48;  break;
- case VALUE_ACE: return 74;  break;
- case VALUE_KING: return 81;  break;
- case VALUE_QUEEN: return 75;  break;
- case VALUE_JACK: return 65;  break;   
+ case 10:  return 48;  break;
+ case 11: return 74;  break;
+ case 12: return 81;  break;
+ case 13: return 75;  break;
+ case 14: return 65;  break;   
  default: break;   
  }
 }
