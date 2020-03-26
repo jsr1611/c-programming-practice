@@ -81,29 +81,26 @@ card_t card_from_letters(char value_let, char suit_let) {
 
 card_t card_from_num(unsigned c) {
   card_t temp;
-  card_t tmp;
+  //  card_t tmp;
 
-  if (c<13){
-    tmp.value = c;
-    temp.value = value_letter(tmp);
+  if (c>=0 && c<13){
+    //tmp.value = c;
+    //temp.value = value_letter(tmp);
     temp.suit = SPADES;
   }
-  else if (c>=13 || c<26){
-    tmp.value = c%13;
-    temp.value = value_letter(tmp);
+  else if (c>=13 && c<26){
+    // tmp.value = c%13;
+    // temp.value = value_letter(tmp);
     temp.suit = HEARTS;
       }
-  else if(c>=26 || c<39){
-    tmp.value = c%13;
-    temp.value = value_letter(tmp);
+  else if(c>=26 && c<39){
+    // tmp.value = c%13;
+    // temp.value = value_letter(tmp);
     temp.suit = DIAMONDS;
   }
-  else
+  else if(c>=32 && c<52)
     {
-      tmp.value = c%13;
-      temp.value = value_letter(tmp);
       temp.suit = CLUBS;
-    }
-  
+    }  
   return temp;
 }
