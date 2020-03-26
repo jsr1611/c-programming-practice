@@ -24,14 +24,14 @@ const char * ranking_to_string(hand_ranking_t r) {
 }
 
 char value_letter(card_t c) {
-  if(c.value >= 0 && c.value <=7) {return c.value;}
+  if(c.value >= 2 && c.value <=9) {return c.value+50;}
   else{
   switch(c.value){
-  case 8: return 48;
-  case 9: return 74; 
-  case 10: return 81; 
-  case 11: return 75; 
-  case 12: return 65; 
+  case 10: return 48;
+  case 11: return 74; 
+  case 12: return 81; 
+  case 13: return 75; 
+  case 14: return 65; 
   default: return 63; 
   }
   }
