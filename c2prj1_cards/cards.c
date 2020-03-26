@@ -53,10 +53,9 @@ void print_card(card_t c) {
 card_t card_from_letters(char value_let, char suit_let) {
   card_t temp;
 
-  /* temp.value = value_let;
+  temp.value = value_let;
   temp.suit = suit_let;
   assert_card_valid(temp);
-  */
   temp.value = value_letter(temp);
   temp.suit = suit_letter(temp);
  
