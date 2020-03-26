@@ -10,7 +10,6 @@ void assert_card_valid(card_t c) {
 }
 
 const char * ranking_to_string(hand_ranking_t r) {
-  // first 3 are flop, 4th = turn, 5th = river
   switch(r){
   case STRAIGHT_FLUSH: return "STRAIGHT_FLUSH"; break;
   case FOUR_OF_A_KIND: return "FOUR_OF_A_KIND"; break;
@@ -46,7 +45,6 @@ char value_letter(card_t c) {
 
 char suit_letter(card_t c) {
   switch(c.suit){
-
   case SPADES:    return 's';    break;
   case HEARTS:    return 'h';    break;
   case DIAMONDS:  return 'd';    break;
@@ -61,8 +59,8 @@ void print_card(card_t c) {
 
 card_t card_from_letters(char value_let, char suit_let) {
   card_t temp;
-  assert(value_let);
-  assert(suit_let);
+  //  assert(value_let);
+  // assert(suit_let);
   switch(value_let){
   case 'A':    temp.value = VALUE_ACE;    break;
   case 'K':    temp.value = VALUE_KING;   break;
@@ -75,6 +73,7 @@ card_t card_from_letters(char value_let, char suit_let) {
   case 'd':    temp.suit = DIAMONDS;  break;
   case 'c':    temp.suit = CLUBS;  break;        
   }
+  assert_card_valid(temp);
   return temp;
 }
 
