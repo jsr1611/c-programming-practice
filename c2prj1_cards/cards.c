@@ -24,14 +24,14 @@ const char * ranking_to_string(hand_ranking_t r) {
 }
 
 char value_letter(card_t c) {
-  if(c.value >= 2 && c.value <=9) {return c.value+'0';}
+  if(c.value >= 0 && c.value <=7) {return c.value+50;}
   else{
   switch(c.value){
-  case 10: return 48;
-  case VALUE_JACK: return 74; 
-  case VALUE_QUEEN: return 81; 
-  case VALUE_KING: return 75; 
-  case VALUE_ACE: return 65; 
+  case 8: return 48;
+  case 9: return 74; 
+  case 10: return 81; 
+  case 11: return 75; 
+  case 12: return 65; 
   default: return 63; 
   }
   }
@@ -79,27 +79,26 @@ card_t card_from_letters(char value_let, char suit_let) {
 
 card_t card_from_num(unsigned c) {
   card_t temp;
-
-  if(c >=0 && c<13){
+  if (c>=0 && c<13){
     temp.value = c;
+    temp.value = value_letter(temp);
     temp.suit = SPADES;
-    // temp.value = value_letter(temp);
   }
-  else if (c>=13 && c<26){
+  else if(c>=13 && c<26){
     temp.value = c%13;
+    temp.value = value_letter(temp);
     temp.suit = HEARTS;
-    // temp.value = value_letter(temp);
   }
   else if(c>=26 && c<39){
     temp.value = c%13;
+    temp.value = value_letter(temp);
     temp.suit = DIAMONDS;
-    // temp.value = value_letter(temp);
   }
   else if(c>=39 && c<52){
     temp.value = c%13;
+    temp.value = value_letter(temp);
     temp.suit = CLUBS;
-    // temp.value = value_letter(temp);
   }
-
+    
     return temp;
 }
