@@ -11,45 +11,38 @@ void assert_card_valid(card_t c) {
 
 const char * ranking_to_string(hand_ranking_t r) {
   switch(r){
-  case STRAIGHT_FLUSH: return "STRAIGHT_FLUSH"; break;
-  case FOUR_OF_A_KIND: return "FOUR_OF_A_KIND"; break;
-  case FULL_HOUSE: return "FULL_HOUSE"; break;
-  case FLUSH: return "FLUSH"; break;
-  case STRAIGHT: return "STRAIGHT"; break;
-  case THREE_OF_A_KIND: return "THREE_OF_A_KIND"; break;
-  case TWO_PAIR: return "TWO_PAIR"; break;
-  case PAIR: return "PAIR"; break;
-  default : return "NOTHING"; break;
+  case STRAIGHT_FLUSH: return "STRAIGHT_FLUSH"; 
+  case FOUR_OF_A_KIND: return "FOUR_OF_A_KIND"; 
+  case FULL_HOUSE: return "FULL_HOUSE"; 
+  case FLUSH: return "FLUSH"; 
+  case STRAIGHT: return "STRAIGHT"; 
+  case THREE_OF_A_KIND: return "THREE_OF_A_KIND"; 
+  case TWO_PAIR: return "TWO_PAIR"; 
+  case PAIR: return "PAIR"; 
+  default : return "NOTHING"; 
   }
 }
 
 char value_letter(card_t c) {
+  if(c.value >= 2 && c.value <=9) return c.value+'0';
+  else{
   switch(c.value){
-
- case 2:  return 50;  break;
- case 3:  return 51;  break;
- case 4:  return 52;  break;
- case 5:  return 53;  break;
- case 6:  return 54;  break;
- case 7:  return 55;  break;
- case 8:  return 56;  break;
- case 9:  return 57;  break;
- case 10:  return 48;  break;
- case 11: return 74;  break;
- case 12: return 81;  break;
- case 13: return 75;  break;
- case 14: return 65;  break;   
-  default: return 63; break;
- }
+  case 11: return 74; 
+  case 12: return 81; 
+  case 13: return 75; 
+  case 14: return 65; 
+  default: return 63; 
+  }
+  }
 }
 
 char suit_letter(card_t c) {
   switch(c.suit){
-  case SPADES:    return 's';    break;
-  case HEARTS:    return 'h';    break;
-  case DIAMONDS:  return 'd';    break;
-  case CLUBS:     return 'c';    break;
-  default: return '?'; break;
+  case SPADES:    return 's';    
+  case HEARTS:    return 'h';    
+  case DIAMONDS:  return 'd';    
+  case CLUBS:     return 'c'; 
+  default: return '?';
   }
 }
 
@@ -82,19 +75,10 @@ card_t card_from_num(unsigned c) {
   temp.value = c;
   //  assert_card_valid(temp);
   
-  if (c>=0 && c<13){
-    temp.suit = SPADES;
-  }
-  else if (c>=13 && c<26){
-    temp.suit = HEARTS;
-      }
-  else if(c>=26 && c<39){
-    temp.suit = DIAMONDS;
-  }
-  else if(c>=32 && c<52)
-    {
-      temp.suit = CLUBS;
-    }
-    assert_card_valid(temp);
-  return temp;
+  if (c>=0 && c<13){     temp.suit = SPADES;  }
+  else if (c>=13 && c<26){    temp.suit = HEARTS;      }
+  else if(c>=26 && c<39){    temp.suit = DIAMONDS;  }
+  else if(c>=32 && c<52)    {      temp.suit = CLUBS;    }
+   assert_card_valid(temp);
+   return temp;
 }
