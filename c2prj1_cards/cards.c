@@ -65,6 +65,16 @@ card_t card_from_letters(char value_let, char suit_let) {
   case 'K':    temp.value = VALUE_KING;   break;
   case 'Q':    temp.value = VALUE_QUEEN;  break;
   case 'J':    temp.value = VALUE_JACK;   break;
+  case '0':    temp.value = 48;   break;
+  case '9':    temp.value = 57;   break;
+  case '8':    temp.value = 56;   break;
+  case '7':    temp.value = 55;   break;
+  case '6':    temp.value = 54;   break;
+  case '5':    temp.value = 53;   break;
+  case '4':    temp.value = 52;   break;
+  case '3':    temp.value = 51;   break;
+  case '2':    temp.value = 50;   break;
+  
   }
   switch(suit_let){
   case 's':    temp.suit = SPADES;  break;
