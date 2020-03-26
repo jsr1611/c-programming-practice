@@ -35,11 +35,11 @@ char value_letter(card_t c) {
  case 7:  return 55;  break;
  case 8:  return 56;  break;
  case 9:  return 57;  break;
-   // case 10:  return 48;  break;
-   // case 11: return 74;  break;
-   // case 12: return 81;  break;
-   // case 13: return 75;  break;
-   // case 14: return 65;  break;   
+ case 10:  return 48;  break;
+ case 11: return 74;  break;
+ case 12: return 81;  break;
+ case 13: return 75;  break;
+ case 14: return 65;  break;   
   default: return 63; break;
  }
 }
@@ -80,7 +80,9 @@ card_t card_from_letters(char value_let, char suit_let) {
 
 card_t card_from_num(unsigned c) {
   card_t temp;
-
+  temp.value = c;
+  //  assert_card_valid(temp);
+  
   if (c>=0 && c<13){
     temp.suit = SPADES;
   }
@@ -93,6 +95,7 @@ card_t card_from_num(unsigned c) {
   else if(c>=32 && c<52)
     {
       temp.suit = CLUBS;
-    }  
+    }
+    assert_card_valid(temp);
   return temp;
 }
