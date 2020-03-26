@@ -52,21 +52,13 @@ void print_card(card_t c) {
 
 card_t card_from_letters(char value_let, char suit_let) {
   card_t temp;
-  //  assert(value_let);
-  // assert(suit_let);
-  switch(value_let){
-  case 'A':    temp.value = VALUE_ACE;    break;
-  case 'K':    temp.value = VALUE_KING;   break;
-  case 'Q':    temp.value = VALUE_QUEEN;  break;
-  case 'J':    temp.value = VALUE_JACK;   break;
-  }
-  switch(suit_let){
-  case 's':    temp.suit = SPADES;  break;
-  case 'h':    temp.suit = HEARTS;  break;
-  case 'd':    temp.suit = DIAMONDS;  break;
-  case 'c':    temp.suit = CLUBS;  break;        
-  }
+
+  temp.value = value_let;
+  temp.suit = suit_let;
   assert_card_valid(temp);
+  temp.value = value_letter(temp);
+  temp.suit = suit_letter(temp);
+ 
   return temp;
 }
 
@@ -74,12 +66,6 @@ card_t card_from_num(unsigned c) {
   card_t temp;
   temp.value = c%13 + 1;
   temp.suit = c%13;
-  //  assert_card_valid(temp);
-  
-  //if (c>=0 && c<13){     temp.suit = SPADES;  }
-  //else if (c>=13 && c<26){    temp.suit = HEARTS;      }
-  //else if(c>=26 && c<39){    temp.suit = DIAMONDS;  }
-  //else if(c>=32 && c<52)    {      temp.suit = CLUBS;    }
-  //assert_card_valid(temp);
+ 
    return temp;
 }
