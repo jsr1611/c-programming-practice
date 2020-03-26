@@ -1,11 +1,11 @@
-Grading at Thu Mar 26 01:58:46 UTC 2020
+Grading at Thu Mar 26 02:01:40 UTC 2020
 Compiling cards.c
 cards.c: In function ‘value_letter’:
-cards.c:44:1: error: control reaches end of non-void function [-Werror=return-type]
+cards.c:45:1: error: control reaches end of non-void function [-Werror=return-type]
  }
  ^
 cards.c: In function ‘suit_letter’:
-cards.c:55:1: error: control reaches end of non-void function [-Werror=return-type]
+cards.c:56:1: error: control reaches end of non-void function [-Werror=return-type]
  }
  ^
 cc1: all warnings being treated as errors
